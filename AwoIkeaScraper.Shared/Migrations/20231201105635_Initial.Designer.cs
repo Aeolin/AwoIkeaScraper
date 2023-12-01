@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AwoIkeaScraper.Shared.Migrations
 {
     [DbContext(typeof(ScrapingContext))]
-    [Migration("20231201104518_Initial")]
+    [Migration("20231201105635_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -41,7 +41,7 @@ namespace AwoIkeaScraper.Shared.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Created")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("CurrencyCode")
@@ -62,7 +62,7 @@ namespace AwoIkeaScraper.Shared.Migrations
                     b.Property<Guid?>("ScrapeEventId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Updated")
+                    b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Url")
@@ -86,7 +86,7 @@ namespace AwoIkeaScraper.Shared.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Created")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("ImportEnded")
@@ -95,7 +95,7 @@ namespace AwoIkeaScraper.Shared.Migrations
                     b.Property<DateTime>("ImportStarted")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("Updated")
+                    b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
@@ -109,7 +109,7 @@ namespace AwoIkeaScraper.Shared.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Created")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Exception")
@@ -118,7 +118,7 @@ namespace AwoIkeaScraper.Shared.Migrations
                     b.Property<Guid?>("ScrapeEventId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Updated")
+                    b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Url")
