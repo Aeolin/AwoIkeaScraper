@@ -15,9 +15,15 @@ namespace AwoIkeaScraper.Shared.Models
 		public virtual Guid? ScrapeEventId { get; set; } = null; 
 		public virtual ScrapeEvent ScrapeEvent { get; set; }
 
+		public int Length { get; set; }
+		public int Width { get; set; }
+		public int Height { get; set; }
+
 		public string ProductNumber { get; set; }
 		public string Url { get; set; }
+		public string ImageUrl { get; set; }
 		public string Name { get; set; }
+		public string ShortDescription { get; set; }
 		public string Description { get; set; }
 		public decimal Price { get; set; } 
 		public virtual Currency Currency { get; set; }
