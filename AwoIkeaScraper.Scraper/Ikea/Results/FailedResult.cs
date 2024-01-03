@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AwoIkeaScraper.Scraper.Ikea.Core;
 
 namespace AwoIkeaScraper.Scraper.Ikea.Results
 {
-	public class FailedResult : IScrapeResult
+    public class FailedResult : IScrapeResult
 	{
 		public IEnumerable<ScrapeJob> Jobs => Enumerable.Empty<ScrapeJob>();
 

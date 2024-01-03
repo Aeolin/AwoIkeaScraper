@@ -29,4 +29,8 @@
     <ProjectReference Include="..\AwoIkeaScraper.Shared\AwoIkeaScraper.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Ikea\Controllers\" />
+  </ItemGroup>
+
 </Project>

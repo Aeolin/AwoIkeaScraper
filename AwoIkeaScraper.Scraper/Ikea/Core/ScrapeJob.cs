@@ -7,9 +7,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace AwoIkeaScraper.Scraper.Ikea
+namespace AwoIkeaScraper.Scraper.Ikea.Core
 {
-	public abstract class ScrapeJob
+	public abstract class ScrapeJob : IScrapeJob
 	{
 		public int RetryCount { get; set; }
 		public Guid Id { get; init; }
@@ -17,9 +17,9 @@ namespace AwoIkeaScraper.Scraper.Ikea
 
 		public ScrapeJob(string uri)
 		{
-			RetryCount=0;
+			RetryCount = 0;
 			Id = Guid.NewGuid();
-			Uri=new Uri(uri);
+			Uri = new Uri(uri);
 		}
 	}
 }

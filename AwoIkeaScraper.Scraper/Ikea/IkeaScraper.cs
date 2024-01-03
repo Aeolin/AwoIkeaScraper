@@ -1,4 +1,5 @@
-﻿using AwoIkeaScraper.Scraper.Ikea.Jobs;
+﻿using AwoIkeaScraper.Scraper.Ikea.Core;
+using AwoIkeaScraper.Scraper.Ikea.Jobs;
 using AwoIkeaScraper.Scraper.Ikea.Results;
 using AwoIkeaScraper.Shared;
 using AwoIkeaScraper.Shared.Models;
