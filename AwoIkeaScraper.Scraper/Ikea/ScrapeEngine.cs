@@ -1,4 +1,5 @@
 ﻿using AwoIkeaScraper.Scraper.Ikea.Jobs;
+using AwoIkeaScraper.Scraper.Ikea.Results;
 using AwoIkeaScraper.Shared.Models;
 using HtmlAgilityPack;
 using System;
@@ -13,18 +14,5 @@ namespace AwoIkeaScraper.Scraper.Ikea
 	public class ScrapeEngine
 	{
 		private readonly HttpClient _client = new HttpClient();
-
-		public async Task<ScrapeResult<Product>> ScrapeAsync(ScrapeJob job)
-		{
-
-		}
-
-		private async Task<ScrapeResult<Product>> ScrapeMainPageAsync(ScrapeJobMainPage page)
-		{
-			var content = await _client.GetStringAsync(page.Uri);
-			var doc = new HtmlDocument();
-			doc.LoadHtml(content);
-
-		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using AwoIkeaScraper.Scraper.Ikea.Jobs;
+using AwoIkeaScraper.Scraper.Ikea.Results;
 using AwoIkeaScraper.Shared;
 using AwoIkeaScraper.Shared.Models;
 using AwosFramework.Multithreading.Runners;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AwoIkeaScraper.Scraper.Ikea
 {
-	public class IkeaScraper
+    public class IkeaScraper
 	{
 		private readonly ScrapingContext _db;
 		private readonly ILogger _logger;
