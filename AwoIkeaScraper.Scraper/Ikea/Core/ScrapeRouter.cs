@@ -9,14 +9,14 @@ namespace AwoIkeaScraper.Scraper.Ikea.Core
 {
 	public class ScrapeRouter
 	{
-		private readonly List<ScrapeRoute> _routes = new();
+		private readonly List<IScrapeRoute> _routes = new();
 
-		public void AddRoute(ScrapeRoute route)
+		public void AddRoute(IScrapeRoute route)
 		{
 			_routes.Add(route);
 		}
 
-		public ScrapeRoute Route(ScrapeJob job)
+		public IScrapeRoute Route(ScrapeJob job)
 		{
 			var route = _routes.FirstOrDefault(x => x.CanHandle(job));
 			return route;

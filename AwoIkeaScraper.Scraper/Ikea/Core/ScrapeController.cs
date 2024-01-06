@@ -1,20 +1,26 @@
 ﻿using AwoIkeaScraper.Scraper.Ikea.Results;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace AwoIkeaScraper.Scraper.Ikea.Core
 {
 	public abstract class ScrapeController
 	{
-		private ScrapeEngine _engine;
-		private ScrapeJob _currentJob;
+		protected HtmlDocument Content { get; private set; }
+		protected JsonDocument JsonContent { get; private set; }
+		protected HttpClient HttpClient { get; private set; }
 		
-		protected ScrapeController(ScrapeEngine engine)
+		public void Setup(HtmlDocument content, JsonDocument json, HttpClient client)
 		{
-			_engine = engine;
+			Content = content;
+			JsonContent = json;
+			HttpClient = client;
 		}
 
 		public IScrapeResult Follow(IEnumerable<ScrapeJob> jobs) => new FollowResult(jobs);

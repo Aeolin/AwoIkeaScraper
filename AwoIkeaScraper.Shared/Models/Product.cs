@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AwoIkeaScraper.Shared.Models
@@ -12,12 +13,14 @@ namespace AwoIkeaScraper.Shared.Models
 	[Index(nameof(ProductNumber), nameof(ScrapeEventId), IsUnique = true)]
 	public class Product : EntityBase
 	{
-		public virtual Guid? ScrapeEventId { get; set; } = null; 
+		[JsonIgnore]
+		public virtual Guid? ScrapeEventId { get; set; } = null;
+		[JsonIgnore]
 		public virtual ScrapeEvent ScrapeEvent { get; set; }
 
-		public int Length { get; set; }
-		public int Width { get; set; }
-		public int Height { get; set; }
+		public int? Length { get; set; }
+		public int? Width { get; set; }
+		public int? Height { get; set; }
 
 		public string ProductNumber { get; set; }
 		public string Url { get; set; }
@@ -25,7 +28,9 @@ namespace AwoIkeaScraper.Shared.Models
 		public string Name { get; set; }
 		public string ShortDescription { get; set; }
 		public string Description { get; set; }
-		public decimal Price { get; set; } 
+		public decimal Price { get; set; }
+		[JsonIgnore]
 		public virtual Currency Currency { get; set; }
+		public string Category { get; set; }
 	}
 }

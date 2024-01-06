@@ -7,7 +7,7 @@ using AwoIkeaScraper.Scraper.Ikea.Core;
 
 namespace AwoIkeaScraper.Scraper.Ikea.Results
 {
-    public class FollowResult : IScrapeResult
+	public class FollowResult : IScrapeResult
 	{
 		public IEnumerable<ScrapeJob> Jobs { get; init; }
 

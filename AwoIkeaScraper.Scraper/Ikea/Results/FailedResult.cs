@@ -7,7 +7,7 @@ using AwoIkeaScraper.Scraper.Ikea.Core;
 
 namespace AwoIkeaScraper.Scraper.Ikea.Results
 {
-    public class FailedResult : IScrapeResult
+	public class FailedResult : IScrapeResult
 	{
 		public IEnumerable<ScrapeJob> Jobs => Enumerable.Empty<ScrapeJob>();
 
@@ -16,6 +16,7 @@ namespace AwoIkeaScraper.Scraper.Ikea.Results
 		public Exception Exception { get; }
 
 		public object Data => null;
+
 
 		public FailedResult(Exception exception = null)
 		{
