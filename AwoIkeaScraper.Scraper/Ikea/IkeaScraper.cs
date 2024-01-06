@@ -37,7 +37,7 @@ namespace AwoIkeaScraper.Scraper.Ikea
 
 		private void _runners_OnResult(object sender, IScrapeResult result)
 		{
-			if(_products.Count > 1000)
+			if(_products.Count > 3000)
 			{
 				_runners.Dispose();
 				_runners.Jobs.Clear();

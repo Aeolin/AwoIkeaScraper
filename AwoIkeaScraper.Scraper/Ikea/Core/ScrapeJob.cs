@@ -17,6 +17,8 @@ namespace AwoIkeaScraper.Scraper.Ikea.Core
 		public Guid Id { get; init; }
 		public Uri Uri { get; init; }
 		public HttpRequestMessage Request { get; set; }
+
+
 		public string Tag { get; set; }
 		public ScrapeJob Parent { get; init; }
 		public IScrapeResult Result { get; set; }

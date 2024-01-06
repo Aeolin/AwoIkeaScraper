@@ -31,6 +31,7 @@ namespace AwoIkeaScraper.Scraper.Ikea.Controllers
 		[Route(Tag = "category")]
 		public async Task<IScrapeResult> ScrapeCategoryAsync(ScrapeJob job)
 		{
+			const string SORT_BY = /*"NAME_ASCENDING"*/"RELEVANCE";
 			var categorySegment = job.Uri.Segments.Last();
 			var category = CategoryRegex.Match(categorySegment).Groups[1].Value;
 			int offset = job.GetData<int?>() ?? 0;
@@ -52,7 +53,7 @@ namespace AwoIkeaScraper.Scraper.Ikea.Controllers
 				            "filterConfig": {
 				                "max-num-filters": 4
 				            },
-				            "sort": "NAME_ASCENDING",
+				            "sort": "{{SORT_BY}}",
 				            "window": {
 				                "size": {{ITEM_BATCH_SIZE}},
 				                "offset": {{offset}}
@@ -110,6 +111,7 @@ namespace AwoIkeaScraper.Scraper.Ikea.Controllers
 			var priceDocument = JsonDocument.Parse(await priceResponse.Content.ReadAsStringAsync());
 			var price = priceDocument.RootElement.GetProperty("priceNumeral").GetDecimal();
 			var currency = priceDocument.RootElement.GetProperty("currencyCode").GetString();
+			var pipUrl = priceDocument.RootElement.GetProperty("pipUrl").GetString();
 
 			var product = new Product {
 				Price = price, 
@@ -120,7 +122,9 @@ namespace AwoIkeaScraper.Scraper.Ikea.Controllers
 				Length = lengthText != null ? int.Parse(lengthText.Split(' ').First()) : null, 
 				Height = heightText != null ? int.Parse(heightText.Split(' ').First()) : null, 
 				Category = category, 
-				ImageUrl = image
+				ImageUrl = image,
+				ProductNumber = id,
+				Url = pipUrl
 			};
 
 			return Ok(product);
